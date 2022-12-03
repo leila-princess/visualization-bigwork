@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    .content {
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1em;
+    }
+    @media screen and (max-width: 400px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Hough Transform</h1>
+</header>
+<body>
+<div align="center">
+  <p>I think the (classical) <a href="https://en.wikipedia.org/wiki/Hough_transform">Hough transform</a> is a
+    great technique, but I found it really hard to understand it from formulas and static images.
+    That’s the reason why I created an explorable explanation of it:</p>
+
+  <p><em>Hover one of the plots to see the corresponding transform in the other one.
+    Click on the left plot to insert points. Drag points to change their position. Click on a point to remove it.
+    For touchscreen users: use two fingers for scrolling.</em></p>
+</div>
+
+<div class="content">
+
+
+  <div class="wrapper">
+    <div id="svg1"></div>
+    <div id="svg2"></div>
+  </div>
+
+  <h3 id="real-world-data">Real-World Data</h3>
+
+
+  <div align="center">
+    <img src="hough-scaled.jpg" alt="Hough input image" />
+  </div>
+
+  <p><br /></p>
+
+  <p>The right plot shows the hough transform for each edge pixel. Dark regions
+    suggest lines formed by the edge pixels. Hover them to see which line in the image they represent.</p>
+
+  <p>The left plot below shows edge pixels extracted from a simple image:</p>
+
+
+
+  <p><br /></p>
+
+
+  <div class="wrapper">
+    <div id="svg3"></div>
+    <div id="svg4"></div>
+  </div>
+</div>
+<script src="hough.js"></script>
+<script>
+  insert_hough_plots("svg1", "svg2")
+  insert_hough_plots_2("svg3", "svg4")
+</script>
+</body>
+</html>
