@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link href="page.css" type="text/css" rel="stylesheet"/>
+  <style>
+    .content {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .formula {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      grid-gap: 10px 20px;
+    }
+    .wrapper56 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px 20px;
+    }
+    @media screen and (max-width: 400px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+    code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+  </style>
+
+  <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+       }
+    });
+
+     MathJax.Hub.Queue(function() {
+         var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } }  });
+  </script>
+
+</head>
+
+<!--<header class="post-header">-->
+<!--  <h1 class="post-title p-name" itemprop="name headline">模拟体验——霍夫变换过程</h1>-->
+<!--</header>-->
+<body>
+
+<div class="black section" id="splash">
+  <div id="logo_container">
+    <!--    <iframe id="logo_interactive" src="splash/" style="border:none" width="300" height="350"></iframe>-->
+    <div id="logo1"></div>
+  </div>
+
+</div>
+<div  id="arrow"></div>
+
+<div class="content">
+
+  <div class="wrapper">
+    <div id="svg1"></div>
+
+    <p>此处鼠标左键单击可以进行点的添加;<br/>
+      <br/>对已经绘制的点再次左键单机即可进行删除点操作;<br/>
+      <br/>一个点对应下图中的一条函数曲线，由相同颜色标记得到;<br/>
+      <br/>随着鼠标定位变换，下图会出现由虚线绘制的相应曲线，不直接绘制就可以看到模拟曲线;
+    </p>
+
+  </div>
+  <div class="wrapper">
+    <div id="svg2"></div>
+    <p>此处随着鼠标移动会跟踪鼠标位置，在鼠标所在位置上得到相应ρ、Θ的值，
+      ρ为红线、Θ为绿线，分别也在上图中对应标示出来————也对应了在上图中ρ、Θ的实际意义;
+      <br/>
+      <br/>已经绘制出的曲线，对应上图中的点;<br/>
+      <br/>鼠标移动到此图后，在上图中反映出红色的ρ和绿色的Θ，还有一个黑色的直线为当前ρ、Θ值下的直线方程;所以曲线交点的ρ、Θ可以得到过曲线对应两点的直线;<br/>
+    </p>
+  </div>
+
+
+</div>
+<script src="hough.js"></script>
+<script>
+  insert_hough_plots0("svg5", "svg6")
+  insert_hough_plots("svg1", "svg2")
+  insert_hough_plots_2("svg3", "svg4")
+</script>
+</body>
+</html>
